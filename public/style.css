@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+#msgBox {
+  background-color: darkslategray;
+  height: 100%;
+}
+
+#form {
+  display: flex;
+  justify-content: space-between;
+}
+
+#input {
+  flex: 1;
+  height: 3.5vh;
+}
+
+.yourMsg {
+  display: block;
+  background-color: blueviolet;
+}
+
+.otherMsg {
+  display: block;
+  background-color: dodgerblue;
+}
