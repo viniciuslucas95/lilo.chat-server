@@ -2,7 +2,14 @@ import { Server } from 'socket.io';
 
 import { server } from './server';
 
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    credentials: true,
+    allowedHeaders: ['lilo-chat-cors'],
+  },
+});
 
 io.on('connection', (socket) => {
   console.log(`An user (${socket.id}) has connected`);
@@ -12,7 +19,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('sendMessage', (message) => {
-    socket.emit('receiveYourMessage', message);
-    socket.broadcast.emit('receiveOtherMessage', message);
+    socket.broadcast.emit('receiveMessage', message);
   });
 });
