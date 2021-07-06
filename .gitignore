@@ -1,6 +1,10 @@
 # dist
 /dist
 /public/*
+/public
 
 # dependencies
 /node_modules
+
+# misc
+.env

@@ -1,6 +1,7 @@
 import { Server, Socket } from 'socket.io';
 
 import { server } from './server';
+import { server as serverConfig } from '../../config/constants';
 
 interface ExtSocket extends Socket {
   username: string;
@@ -8,7 +9,10 @@ interface ExtSocket extends Socket {
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin:
+      process.env.NODE_ENV === 'development'
+        ? serverConfig.devUrl
+        : serverConfig.prodUrl,
     methods: ['GET', 'POST'],
     credentials: true,
     allowedHeaders: ['lilo-chat-cors'],
