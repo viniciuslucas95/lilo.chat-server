@@ -1,0 +1,17 @@
+const path = require('path');
+
+module.exports = {
+  config: path.resolve(
+    __dirname,
+    'src',
+    'config',
+    'constants',
+    'postgresql.ts'
+  ),
+  'migrations-path': path.resolve(
+    __dirname,
+    'src',
+    'database',
+    'migrations'
+  ),
+};
